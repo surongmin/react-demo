@@ -1,0 +1,49 @@
+[{
+    "id": 1,
+    "address": "徐汇区天钥桥路93-3号（近美罗城）",
+    "picture": "http://p0.meituan.net/600.600/bbia/ccfe5fb194070378df443f288eb09757499576.jpg",
+    "product": "粉面桃花土豆粉（天钥桥路店）",
+    "price": 27,
+    "ifCommented": true
+},
+{
+    "id": 2,
+    "address": "长宁区天山路762号（巴黎春天中区4层）",
+    "price": 70,
+    "picture": "https://img.meituan.net/600.600/msmerchant/cbca7eaec9607f5db010813f9a40a32d466410.jpg",
+    "product": "鑫海汇烤肉自助餐厅（巴黎春天店）",
+    "ifCommented": false
+},
+{
+    "id": 3,
+    "address": "嘉定区金沙江西路万达广场百货四楼（近金运路地铁站）",
+    "price": 61,
+    "picture": "http://p0.meituan.net/600.600/mogu/40e14a03f33d669838eea192453cfe7413474.jpg",
+    "product": "牛仔街区时尚自助餐厅（江桥万达店）",
+    "ifCommented": false
+},
+{
+    "id": 4,
+    "address": "松江区新松江路927弄开元地中海商业广场4层",
+    "price": 100,
+    "picture": "https://img.meituan.net/600.600/msmerchant/c5271c09c0d62ff49d4f3bc2ee2131c11148067.jpg",
+    "product": "金狮蓝蒂海鲜自助餐厅",
+    "ifCommented": false
+},
+{
+    "id": 5,
+    "address": "嘉定区城中路138号罗宾森广场南侧2号美食亭",
+    "price": 10,
+    "picture": "http://p1.meituan.net/600.600/deal/__46171753__8618749.jpg",
+    "product": "陆湘烤猪蹄（罗宾森店）",
+    "ifCommented": false
+},
+{
+    "id": 6,
+    "address": "黄浦区淮海东路68号与云南南路交口淮云大厦底层",
+    "price": 126,
+    "picture": "https://img.meituan.net/600.600/msmerchant/784162994e7f4ef9d76a7c3afdd0020b526396.jpg",
+    "product": "珮姐老火锅（人民广场店）",
+    "ifCommented": false
+}
+]
