@@ -12,7 +12,7 @@ import React, { useState } from 'react'
 
 const LikeButton: React.FC = () => {
     let [like, setLike] = useState(0)
-    
+
     let handdleAddLike = () => {
         setLike(like + 1)
     }
