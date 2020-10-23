@@ -39,3 +39,8 @@ npm run test
 jest-dom
 <!-- 之前的test断言库 大多是基本数据类型的断言 -->
 jest-dom 是对于dom的断言
+
+
+学习flex网站
+css-tricks
+css-tricks.com/snippets/css/a-guide-to-flexbox/
