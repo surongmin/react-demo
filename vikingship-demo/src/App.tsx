@@ -7,7 +7,7 @@ import SubMenu from './components/Menu/subMenu'
 function App() {
   return (
     <div className="App">
-      <Menu defaultIndex={0} mode='horizontal'>
+      <Menu defaultIndex={0} onSelect={(index) => { alert(index) }}>
         <MenuItem>
           test
         </MenuItem>
