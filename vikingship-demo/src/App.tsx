@@ -2,20 +2,30 @@ import React from 'react';
 import Button, { ButtonType, ButtonSize } from './components/Button/button'
 import Menu from './components/Menu/menu'
 import MenuItem from './components/Menu/menuItem'
+import SubMenu from './components/Menu/subMenu'
 
 function App() {
   return (
     <div className="App">
-      <Menu defaultIndex={0} onSelect={(index) => { alert(index) }}>
-        <MenuItem index={0}>
+      <Menu defaultIndex={0} mode='horizontal'>
+        <MenuItem>
           test
         </MenuItem>
-        <MenuItem index={1} disabled>
+        <SubMenu title="dropdown">
+          <MenuItem>
+            test
+          </MenuItem>
+          <MenuItem>
+            test
+          </MenuItem>
+        </SubMenu>
+        <MenuItem disabled>
           test
         </MenuItem>
-        <MenuItem index={2}>
+        <MenuItem>
           test
         </MenuItem>
+
       </Menu>
 
       <Button disabled>测试按钮</Button>
