@@ -44,3 +44,10 @@ jest-dom 是对于dom的断言
 学习flex网站
 css-tricks
 css-tricks.com/snippets/css/a-guide-to-flexbox/
+
+
+defaultProps的类型是any 没有受到约束 
+ FC没有类型 props没有类型
+
+没有这个文件 node_modules/@types/react/index.d.ts
+重新npm install
