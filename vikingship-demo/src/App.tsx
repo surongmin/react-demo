@@ -33,7 +33,7 @@ function App() {
       <FontAwesomeIcon icon={faCoffee} size='8x' />
       <FontAwesomeIcon icon={faCoffee} size='9x' />
       <FontAwesomeIcon icon={faCoffee} size='10x' />
-      <Menu defaultIndex='0' onSelect={(index) => { alert(index) }} defaultOpenSubMenus={['1']} mode='vertical'>
+      <Menu defaultIndex='0' onSelect={(index) => { alert(index) }} defaultOpenSubMenus={['1']} >
         <MenuItem>
           test
         </MenuItem>

@@ -106,3 +106,11 @@ library.add( faCheckSquare, faCoffee)
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 library.add(fas)
+
+
+## react 中使用动画
+React Transition Group
+http://reactcommunity.org/react-transition-group/
+
+npm install react-transition-group --save
+<!-- npm install @types/react-transition-group --save -->

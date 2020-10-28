@@ -5,6 +5,7 @@ import { MenuItemProps } from './menuItem'
 import Icon from '../Icon/Icon'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons'
+import { CSSTransition } from 'react-transition-group'
 
 library.add(fas)
 
@@ -21,8 +22,8 @@ const SubMenu: React.FC<SubMenuProps> = ({ index, title, children, className }) 
     const [menuOpen, setOpen] = useState(isOpen)
     const classes = classNames('menu-item submenu-item', className, {
         'is-active': context.index === index,
-        'is-opened':menuOpen,
-        'is-vertical':context.mode === 'vertical'
+        'is-opened': menuOpen,
+        'is-vertical': context.mode === 'vertical'
     })
 
     const handleClick = (e: React.MouseEvent) => {
@@ -63,10 +64,17 @@ const SubMenu: React.FC<SubMenuProps> = ({ index, title, children, className }) 
             }
         })
         return (
-
-            <ul className={subMenuClasses}>
-                {childrenComponent}
-            </ul>
+            <CSSTransition
+                in={menuOpen}
+                timeout={300}
+                classNames='zoom-in-top'
+                appear
+                unmountOnExit
+            >
+                <ul className={subMenuClasses}>
+                    {childrenComponent}
+                </ul>
+            </CSSTransition>
         )
     }
 
