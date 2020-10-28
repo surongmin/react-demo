@@ -51,3 +51,58 @@ defaultProps的类型是any 没有受到约束
 
 没有这个文件 node_modules/@types/react/index.d.ts
 重新npm install
+
+
+## 图标
+使用现有的图标库
+
+官网
+https://github.com/FortAwesome/react-fontawesome
+
+https://fontawesome.com/
+https://fontawesome.com/icons?d=gallery&m=free
+
+安装
+npm i --save @fortawesome/fontawesome-svg-core \
+             @fortawesome/free-solid-svg-icons \
+             @fortawesome/react-fontawesome
+
+使用——第一种方式
+// 引入图标容器
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// 引入具体的图标
+import { faCoffee } from '@fortawesome/free-solid-svg-icons'
+
+
+第二种方式使用
+①
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faCheckSquare, faCoffee } from '@fortawesome/free-solid-svg-icons'
+library.add(fab, faCheckSquare, faCoffee)
+ <Icon icon={faCheckSquare} theme='danger' />
+
+①
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faCheckSquare, faCoffee } from '@fortawesome/free-solid-svg-icons'
+
+library.add(faCheckSquare, faCoffee)
+
+<FontAwesomeIcon icon={faCoffee} />
+
+①使用字符串icon
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faCheckSquare, faCoffee } from '@fortawesome/free-solid-svg-icons'
+
+library.add( faCheckSquare, faCoffee)
+
+<FontAwesomeIcon icon="check-square" />
+
+<Icon icon='bowling-ball' theme='primary' />
+<Icon icon='angle-down' className='arrow-icon' />
+<Icon icon='coffee' theme='secondary' size='10x' />
+
+引入全部图标
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fas } from '@fortawesome/free-solid-svg-icons'
+library.add(fas)

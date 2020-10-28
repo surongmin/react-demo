@@ -1,0 +1,6 @@
+/* 给每一个图标设置颜色 */
+@each $key, $val in $theme-colors {
+    .icon-#{$key} {
+        color: $val;
+    }
+}
