@@ -5,7 +5,8 @@ import { MenuItemProps } from './menuItem'
 import Icon from '../Icon/Icon'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons'
-import { CSSTransition } from 'react-transition-group'
+// import { CSSTransition } from 'react-transition-group'
+import Transition from '../Transition/Transition'
 
 library.add(fas)
 
@@ -64,17 +65,28 @@ const SubMenu: React.FC<SubMenuProps> = ({ index, title, children, className }) 
             }
         })
         return (
-            <CSSTransition
+            // <CSSTransition
+            //     in={menuOpen}
+            //     timeout={300}
+            //     classNames='zoom-in-top'
+            //     appear
+            //     unmountOnExit
+            // >
+            //     <ul className={subMenuClasses}>
+            //         {childrenComponent}
+            //     </ul>
+            // </CSSTransition>
+
+            <Transition
                 in={menuOpen}
                 timeout={300}
-                classNames='zoom-in-top'
-                appear
-                unmountOnExit
+                animation="zoom-in-bottom"
             >
                 <ul className={subMenuClasses}>
                     {childrenComponent}
                 </ul>
-            </CSSTransition>
+            </Transition>
+            
         )
     }
 
