@@ -114,3 +114,29 @@ http://reactcommunity.org/react-transition-group/
 
 npm install react-transition-group --save
 <!-- npm install @types/react-transition-group --save -->
+
+
+## storybook
+https://storybook.js.org/
+
+安装
+npx -p @storybook/cli sb init
+
+npx sb init
+
+最新版运行不出来
+用视频里的版本 不知道如何安装不同的版本的storybook
+直接修改package.json  再npm install
+
+  "devDependencies": {
+    "@storybook/addon-actions": "^5.2.8",
+    "@storybook/addon-info": "^5.2.8",
+    "@storybook/addon-links": "^5.2.8",
+    "@storybook/addons": "^5.2.8",
+    "@storybook/react": "^5.2.8",
+  }
+
+
+运行 storybook
+npm run storybook
+
