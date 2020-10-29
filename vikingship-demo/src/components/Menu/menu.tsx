@@ -1,4 +1,4 @@
-import React, { useState, createContext } from 'react'
+import React, { FC, FunctionComponentElement, Children, cloneElement, useState, createContext } from 'react'
 import classNames from 'classnames'
 import { MenuItemProps } from './menuItem'
 
@@ -24,7 +24,7 @@ interface IMenuContext {
 
 export const MenuContext = createContext<IMenuContext>({ index: '0' })
 
-const Menu: React.FC<MenuProps> = (props) => {
+export const Menu: FC<MenuProps> = (props) => {
     const { className, mode, style, children, defaultIndex, onSelect, defaultOpenSubMenus } = props
     const [currentActive, setActive] = useState(defaultIndex)
     const classes = classNames('viking-menu', className, {
@@ -47,11 +47,11 @@ const Menu: React.FC<MenuProps> = (props) => {
     }
 
     const renderChildren = () => {
-        return React.Children.map(children, (child, index) => {
-            const childElement = child as React.FunctionComponentElement<MenuItemProps>
+        return Children.map(children, (child, index) => {
+            const childElement = child as FunctionComponentElement<MenuItemProps>
             const { displayName } = childElement.type
             if (displayName === 'MenuItem' || displayName === 'SubMenu') {
-                return React.cloneElement(childElement, {
+                return cloneElement(childElement, {
                     index: index.toString()
                 })
             } else {
@@ -78,4 +78,4 @@ Menu.defaultProps = {
     defaultOpenSubMenus: []
 }
 
-export default Menu
+export default Menu;

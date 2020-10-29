@@ -1,7 +1,7 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
-import { withInfo } from '@storybook/addon-info'
+// import { withInfo } from '@storybook/addon-info'
 
 import Button from './button'
 // import Button, { ButtonType, ButtonSize } from './button'
@@ -36,28 +36,28 @@ const buttonWithType = () => (
 
 storiesOf('Button Component', module)
   // .addDecorator(CenterDecorator)
-  .addDecorator(withInfo)
+  // .addDecorator(withInfo)
   // 编写参数  可以写文档
-  .addParameters({
-    info: {
-      // text: 'this is a very nice component',
-      // text里面可以使用Markdown
-      // text: `
-      // this is a very nice component
-      // ## this is a header
-      // ~~~js
-      // const a = 'hello'
-      // ~~~
-      // `,
-      inline: true
-    }
-  })
+  // .addParameters({
+  //   info: {
+  //     // text: 'this is a very nice component',
+  //     // text里面可以使用Markdown
+  //     // text: `
+  //     // this is a very nice component
+  //     // ## this is a header
+  //     // ~~~js
+  //     // const a = 'hello'
+  //     // ~~~
+  //     // `,
+  //     inline: true
+  //   }
+  // })
   // Button.tsx的注释内容自动显示 需要名称一致
   .add('Button', defaultButton)
   // .add('默认 Button', defaultButton)
-  // .add('不同尺寸的 Button', buttonWithSize)
+  .add('不同尺寸的 Button', buttonWithSize)
   // 第三个参数是 参数信息  优先级最高
-  .add('不同尺寸的 Button', buttonWithSize, { info: { inline: false } })
+  // .add('不同尺寸的 Button', buttonWithSize, { info: { inline: false } })
   .add('不同类型的 Button', buttonWithType)
 
 
