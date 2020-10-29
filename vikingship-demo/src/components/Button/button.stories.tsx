@@ -5,11 +5,11 @@ import { action } from '@storybook/addon-actions'
 import Button, { ButtonType, ButtonSize } from './button'
 
 // 添加样式、装饰器
-const styles: React.CSSProperties = {
-  textAlign: 'center',
-}
+// const styles: React.CSSProperties = {
+//   textAlign: 'center',
+// }
 
-const CenterDecorator = (storyFn: any) => <div style={styles}>{storyFn()}</div>
+// const CenterDecorator = (storyFn: any) => <div style={styles}>{storyFn()}</div>
 
 const defaultButton = () => (
   <Button onClick={action('clicked')}>
@@ -33,7 +33,7 @@ const buttonWithType = () => (
 )
 
 storiesOf('Button Component', module)
-  .addDecorator(CenterDecorator)
+  // .addDecorator(CenterDecorator)
   .add('默认 Button', defaultButton)
   .add('不同尺寸的 Button', buttonWithSize)
   .add('不同类型的 Button', buttonWithType)
