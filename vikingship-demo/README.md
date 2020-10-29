@@ -140,3 +140,15 @@ npx sb init
 运行 storybook
 npm run storybook
 
+storybook  addon插件
+可以书写文档
+
+安装
+npm i -D @storybook/addon-info
+npm install --save @types/storybook__addon-info
+
+
+书写代码参数 工具
+
+npm install --save-dev react-docgen-typescript-loader
+

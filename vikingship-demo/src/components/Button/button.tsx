@@ -1,22 +1,27 @@
-import React from 'react'
+import React, { ButtonHTMLAttributes, AnchorHTMLAttributes, FC } from 'react'
 import classNames from 'classnames'
 
-export enum ButtonSize {
-    Large = 'lg',
-    Small = 'sm'
-}
+export type ButtonSize = 'lg' | 'sm'
+// export enum ButtonSize {
+//     Large = 'lg',
+//     Small = 'sm'
+// }
 
-export enum ButtonType {
-    Primary = 'primary',
-    Default = 'default',
-    Danger = 'danger',
-    Link = 'link'
-}
+export type ButtonType = 'primary' | 'default' | 'danger' | 'link'
+// export enum ButtonType {
+//     Primary = 'primary',
+//     Default = 'default',
+//     Danger = 'danger',
+//     Link = 'link'
+// }
 
 interface BaseButtonProps {
     className?: string;
+    /** 设置 Button 的禁用 */
     disabled?: boolean;
+    /** 设置 Button 的大小 */
     size?: ButtonSize;
+    /** 设置 Button 的类型 */
     btnType?: ButtonType;
     children: React.ReactNode,
     href?: string
@@ -26,13 +31,22 @@ interface BaseButtonProps {
 // type NativeButtonProps = React.ButtonHTMLAttributes<HTMLElement>
 
 // 交叉类型 两种类型都要
-type NativeButtonProps = BaseButtonProps & React.ButtonHTMLAttributes<HTMLElement>
-type AnchorButtonProps = BaseButtonProps & React.AnchorHTMLAttributes<HTMLElement>
+type NativeButtonProps = BaseButtonProps & ButtonHTMLAttributes<HTMLElement>
+type AnchorButtonProps = BaseButtonProps & AnchorHTMLAttributes<HTMLElement>
 // 最终的类型
 // Partial 把所有的属性变为可选的
 export type ButtonProps = Partial<NativeButtonProps & AnchorButtonProps>
 
-const Button: React.FC<ButtonProps> = (props) => {
+/**
+ * 这是我们的第一个组件
+ * ## Button header
+ * ~~~js
+ * import { Button } from 'vikingship'
+ * ~~~
+ * @param props
+*/
+
+export const Button: FC<ButtonProps> = (props) => {
     // ...restProps 除了前面的 剩下的属性
     const {
         className,
@@ -48,11 +62,11 @@ const Button: React.FC<ButtonProps> = (props) => {
     const classes = classNames('btn', className, {
         [`btn-${btnType}`]: btnType,
         [`btn-${size}`]: size,
-        'disabled': (btnType === ButtonType.Link) && disabled
+        'disabled': (btnType === 'link') && disabled
     })
 
-    // 
-    if (btnType === ButtonType.Link && href) {
+    //
+    if (btnType === 'link' && href) {
         return (
             <a
                 className={classes}
@@ -77,7 +91,8 @@ const Button: React.FC<ButtonProps> = (props) => {
 // 默认props属性
 Button.defaultProps = {
     disabled: false,
-    btnType: ButtonType.Default
+    btnType: 'default'
+    // btnType: ButtonType.Default
 }
 
-export default Button
+export default Button;

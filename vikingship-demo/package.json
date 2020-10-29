@@ -14,6 +14,7 @@
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
     "@types/react-transition-group": "^4.4.0",
+    "@types/storybook__addon-info": "^5.2.3",
     "classnames": "^2.2.6",
     "node-sass": "^4.14.1",
     "react": "^17.0.0",
@@ -48,11 +49,12 @@
   "devDependencies": {
     "@babel/core": "^7.12.3",
     "@storybook/addon-actions": "^5.2.8",
-    "@storybook/addon-info": "^5.2.8",
+    "@storybook/addon-info": "^5.3.21",
     "@storybook/addon-links": "^5.2.8",
     "@storybook/addons": "^5.2.8",
     "@storybook/react": "^5.2.8",
     "babel-loader": "^8.1.0",
+    "react-docgen-typescript-loader": "^3.7.2",
     "react-is": "^17.0.1"
   }
 }
