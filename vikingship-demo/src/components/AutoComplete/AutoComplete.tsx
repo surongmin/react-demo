@@ -1,15 +1,17 @@
-import React, { FC, useState, ChangeEvent } from 'react'
+import React, { FC, useState, ChangeEvent, ReactElement } from 'react'
 import Input, { InputProps } from '../Input/Input'
 
 export interface AutoCompleteProps extends Omit<InputProps, 'onSelect'> {
-    fetchSuggestions: (str: string) => string[]
+    fetchSuggestions: (str: string) => string[];
     onSelect?: (item: string) => void;
+    renderOption?: (item: string) => ReactElement
 }
 
 export const AutoComplete: FC<AutoCompleteProps> = (props) => {
     const {
         fetchSuggestions,
         onSelect,
+        renderOption,
         value,
         ...restProps
     } = props
@@ -31,9 +33,12 @@ export const AutoComplete: FC<AutoCompleteProps> = (props) => {
     const handleSelect = (item: string) => {
         setInputValue(item)
         setSuggestions([])
-        if(onSelect){
+        if (onSelect) {
             onSelect(item)
         }
+    }
+    const renderTemplate = (item: string) => {
+        return renderOption ? renderOption(item) : item
     }
     const generateDropdown = () => {
         return (
@@ -41,7 +46,7 @@ export const AutoComplete: FC<AutoCompleteProps> = (props) => {
                 {suggestions.map((item, index) => {
                     return (
                         <li key={index} onClick={() => handleSelect(item)}>
-                            {item}
+                            {renderTemplate(item)}
                         </li>
                     )
                 })}
