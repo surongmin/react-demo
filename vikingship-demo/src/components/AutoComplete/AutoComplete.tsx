@@ -44,7 +44,7 @@ export const AutoComplete: FC<AutoCompleteProps> = (props) => {
         }
     }
     const renderTemplate = (item: DataSourceType) => {
-        return renderOption ? renderOption(item) : item
+        return renderOption ? renderOption(item) : item.value
     }
     const generateDropdown = () => {
         return (

@@ -14,8 +14,8 @@ interface LakerPlayerProps {
 // }
 
 const SimpleComplete = () => {
-    // const lakers = ['bradley', 'pope', 'caruso', 'cook', 'cousins',
-    //     'james', 'AD', 'green', 'howard', 'kuzma', 'McGee', 'rando']
+    const lakers = ['bradley', 'pope', 'caruso', 'cook', 'cousins',
+        'james', 'AD', 'green', 'howard', 'kuzma', 'McGee', 'rando']
     const lakersWithNumber = [
         { value: 'bradley', number: 11 },
         { value: 'pope', number: 1 },
@@ -29,27 +29,34 @@ const SimpleComplete = () => {
         { value: 'kuzma', number: 0 },
     ]
 
+    // arr string
     // const handleFetch = (query: string) => {
     //     return lakers.filter(name => name.includes(query))
     // }
+
+    // object
     const handleFetch = (query: string) => {
-        return lakersWithNumber.filter(player => player.value.includes(query))
+        return lakers.filter(name => name.includes(query)).map(name => ({ value: name }))
     }
 
-    const renderOption = (item: DataSourceType<LakerPlayerProps>) => {
-        return (
-            <>
-                <h2>Name: {item.value}</h2>
-                <p>Number: {item.number}</p>
-            </>
-        )
-    }
+    // const handleFetch = (query: string) => {
+    //     return lakersWithNumber.filter(player => player.value.includes(query))
+    // }
+
+    // const renderOption = (item: DataSourceType<LakerPlayerProps>) => {
+    //     return (
+    //         <>
+    //             <h2>Name: {item.value}</h2>
+    //             <p>Number: {item.number}</p>
+    //         </>
+    //     )
+    // }
 
     return (
         <AutoComplete
             fetchSuggestions={handleFetch}
             onSelect={action('selected')}
-            renderOption={renderOption}
+        // renderOption={renderOption}
         />
     )
 }
