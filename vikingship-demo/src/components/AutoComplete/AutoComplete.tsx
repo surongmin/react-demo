@@ -1,5 +1,6 @@
 import React, { FC, useState, ChangeEvent, ReactElement } from 'react'
 import Input, { InputProps } from '../Input/Input'
+import Icon from '../Icon/Icon'
 
 interface DataSourceObject {
     value: string;
@@ -8,7 +9,7 @@ interface DataSourceObject {
 export type DataSourceType<T = {}> = T & DataSourceObject
 
 export interface AutoCompleteProps extends Omit<InputProps, 'onSelect'> {
-    fetchSuggestions: (str: string) => DataSourceType[];
+    fetchSuggestions: (str: string) => DataSourceType[] | Promise<DataSourceType[]>;
     onSelect?: (item: DataSourceType) => void;
     renderOption?: (item: DataSourceType) => ReactElement
 }
@@ -24,6 +25,7 @@ export const AutoComplete: FC<AutoCompleteProps> = (props) => {
 
     const [inputValue, setInputValue] = useState(value)
     const [suggestions, setSuggestions] = useState<DataSourceType[]>([])
+    const [loading, setLoading] = useState(false)
 
     console.log(suggestions)
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -31,7 +33,15 @@ export const AutoComplete: FC<AutoCompleteProps> = (props) => {
         setInputValue(value)
         if (value) {
             const results = fetchSuggestions(value)
-            setSuggestions(results)
+            if (results instanceof Promise) {
+                setLoading(true)
+                results.then(data => {
+                    setLoading(false)
+                    setSuggestions(data)
+                })
+            } else {
+                setSuggestions(results)
+            }
         } else {
             setSuggestions([])
         }
@@ -67,6 +77,7 @@ export const AutoComplete: FC<AutoCompleteProps> = (props) => {
                 onChange={handleChange}
                 {...restProps}
             />
+            { loading && <ul><Icon icon="spinner" spin /></ul>}
             {(suggestions.length > 0) && generateDropdown()}
         </div>
     )
