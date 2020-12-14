@@ -8,9 +8,10 @@ class ThemeButton extends Component {
             <ThemeContext.Consumer>
                 {
                     theme => {
+                        console.log(theme)
                         return (
-                            <div style={{ marginBottom: "100px", height: "100px" ,padding: "30px",color:theme.color,backgroundColor:theme.bgColor}}>
-                                <Button type = {theme.type}>测试按钮</Button>
+                            <div style={{ marginBottom: "100px", height: "100px", padding: "30px", color: theme.color, backgroundColor: theme.bgColor }}>
+                                <Button type={theme.type}>测试按钮</Button>
                             </div>
                         )
                     }

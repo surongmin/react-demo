@@ -1,8 +1,9 @@
-import React, { FC, useState, useEffect, ChangeEvent, ReactElement, KeyboardEvent } from 'react'
+import React, { FC, useState, useRef, useEffect, ChangeEvent, ReactElement, KeyboardEvent } from 'react'
 import classNames from 'classnames'
 import Input, { InputProps } from '../Input/Input'
 import Icon from '../Icon/Icon'
 import useDebounce from '../../hooks/useDebounce'
+import useClickOutside from '../../hooks/useClickOutside'
 
 interface DataSourceObject {
     value: string;
@@ -30,10 +31,13 @@ export const AutoComplete: FC<AutoCompleteProps> = (props) => {
     const [loading, setLoading] = useState(false)
     // 设置高亮
     const [highlightIndex, sethighlightIndex] = useState(-1)
-    const debouncedValue = useDebounce(inputValue, 500)
+    const triggerSearch = useRef(false)
+    const componentRef = useRef<HTMLDivElement>(null)
+    const debouncedValue = useDebounce(inputValue, 300)
+    useClickOutside(componentRef, () => { setSuggestions([])})
 
     useEffect(() => {
-        if (debouncedValue) {
+        if (debouncedValue && triggerSearch.current) {
             const results = fetchSuggestions(debouncedValue)
             if (results instanceof Promise) {
                 setLoading(true)
@@ -86,6 +90,7 @@ export const AutoComplete: FC<AutoCompleteProps> = (props) => {
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value.trim()
         setInputValue(value)
+        triggerSearch.current = true
     }
     const handleSelect = (item: DataSourceType) => {
         setInputValue(item.value)
@@ -93,6 +98,7 @@ export const AutoComplete: FC<AutoCompleteProps> = (props) => {
         if (onSelect) {
             onSelect(item)
         }
+        triggerSearch.current = false
     }
     const renderTemplate = (item: DataSourceType) => {
         return renderOption ? renderOption(item) : item.value
@@ -115,7 +121,7 @@ export const AutoComplete: FC<AutoCompleteProps> = (props) => {
     }
 
     return (
-        <div className='viking-auto-complete'>
+        <div className='viking-auto-complete' ref={componentRef}>
             <Input
                 value={inputValue}
                 onChange={handleChange}
