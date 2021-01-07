@@ -38,6 +38,7 @@ let result4 = add2(3, 6, 8)
 
 
 // 函数表达式
+// 没有给add3定义类型 但是add3自动获得了类型——类型推断
 let add3 = function (x: number, y: number, z: number = 10): number {
     if (typeof z === 'number') {
         return x + y + z
@@ -46,6 +47,7 @@ let add3 = function (x: number, y: number, z: number = 10): number {
 }
 // let add4:string = add3 //报错
 let add4: (x: number, y: number, z?: number) => number = add3
+
 // 类型推断
 let str = "str";
 // str = 213 //报错

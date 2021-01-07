@@ -29,5 +29,5 @@ let person2: Person2 = {
 // person2.id = 3 //报错
 
 // readonly 和 const
-// readonly--属性
+// readonly--用于属性
 // const--定义变量

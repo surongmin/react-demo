@@ -1,3 +1,11 @@
+// 类的修饰符
+// public——默认，都可以访问
+// private——私有，外部、子类都不可以访问
+// protected——外部不可以访问，子类可以访问
+
+// readonly——只读 不可写
+// static——静态属性方法（和实例的状态没有很大的关系），不需要创建实例，可直接调用类上的静态属性方法 
+
 class Animal{
     name:string;
     // public name:string;
