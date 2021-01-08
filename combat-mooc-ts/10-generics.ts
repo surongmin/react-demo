@@ -1,13 +1,16 @@
+// 使用泛型 希望输出lenth
+// 只有有length属性的类型 才不会报错
+
 function echoWithArr<T>(arg: T[]): T[] {
     // function echoWithArr<T>(arg:T):T{  //报错
     console.log(arg.length);
     return arg
 }
 let arrs = echoWithArr([, 45, 3, 2])
-let arrs1 = echoWithArr("str") //报错
+// let arrs1 = echoWithArr("str") //报错
 
 
-// 
+// 对泛型进行约束
 interface IWithLength {
     length: number
 }

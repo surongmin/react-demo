@@ -1,4 +1,4 @@
-// type aliases
+// type aliases  类型别名
 
 // function sum(x: number, y: number): number {
 //     return x + y

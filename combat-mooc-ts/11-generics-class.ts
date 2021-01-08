@@ -1,3 +1,4 @@
+// 定义一个类队列
 // class Queue {
 //     private data = [];
 //     push(item){
@@ -12,9 +13,9 @@
 // queue.push(1);
 // queue.push('str')
 // console.log(queue.pop().toFixed())
-// console.log(queue.pop().toFixed()) //报错
+// console.log(queue.pop().toFixed()) //报错 第二个值是string不能使用toFixed方法
 
-
+// 给他定义 number类型
 // class Queue {
 //     private data = [];
 //     push(item:number){
@@ -27,11 +28,11 @@
 
 // let  queue = new Queue()
 // queue.push(1);
-// queue.push('str') //
+// queue.push('str') //报错 不是number
 // console.log(queue.pop().toFixed())
 // console.log(queue.pop().toFixed()) //报错
 
-
+// 使用泛型  进入 出去的数据类型都一样
 class Queue<T> {
     private data = [];
     push(item:T){

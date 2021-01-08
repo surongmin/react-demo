@@ -1,7 +1,11 @@
 
-// jQuery(#foo) //报错
+// 使用第三方库 需要引入第三方库的声明文件 才能得到代码补全、接口提示等功能
 
-// 自己声明一个jQuery
+// 使用jQuery
+
+// jQuery(#foo) //报错  ts不知道jQuery是什么
+
+// 自己声明一个jQuery  这样就可以使用jQuery了
 declare var jQuery: (selector: string) => any
 
 // 一般把声明文件单独放在一个文件 .d.ts结尾的文件名 —— 全局可以使用 jQuery
@@ -13,7 +17,7 @@ declare var jQuery: (selector: string) => any
 // }
 
 
-// 可以使用第三方声明文件
+// 可以直接使用第三方声明文件
 // @types
 // @types/jquery
 // npm install --save @type/jquery 
