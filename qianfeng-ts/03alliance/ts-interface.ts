@@ -1,11 +1,11 @@
 // 1、定义接口
-
+// 强约束
 interface Istate {
     name: string
 }
 
 let obj1: Istate;
-// obj1 = {}
+// obj1 = {}  //报错
 obj1 = { name: 'ssss' }
 
 interface Istate2 {
